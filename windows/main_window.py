@@ -12,21 +12,28 @@ class Window(QWidget):
 
         self.result_layout = QtWidgets.QVBoxLayout()
 
+        self.main_line = QtWidgets.QVBoxLayout()
+
         self.v_line1 = QtWidgets.QVBoxLayout()
         self.v_line2 = QtWidgets.QVBoxLayout()
 
         self.h_line = QtWidgets.QHBoxLayout()
+        self.h1_line = QtWidgets.QHBoxLayout()
+        self.h2_line = QtWidgets.QHBoxLayout()
 
         self.timer = QtWidgets.QSpinBox()
         self.timer.setValue(30)
         self.timer_lbl = QtWidgets.QLabel('хвилин')
 
-        self.question_label = QtWidgets.QLabel('')
+        self.question_label = QtWidgets.QLabel('Питання')
+        
         self.correct_lbl = QtWidgets.QLabel('правильно')
         self.right_lbl = QtWidgets.QLabel('правильна відповідь')
 
-        self.btn_menu = QtWidgets.QPushButton()
-        self.btn_sleep = QtWidgets.QPushButton()
+        self.btn_menu = QtWidgets.QPushButton('меню')
+        self.h1_line.addStretch(2)
+        self.btn_sleep = QtWidgets.QPushButton('відпочити')
+        self.btn_answer = QtWidgets.QPushButton('Відповісти')
 
         self.r_btn1 = QtWidgets.QRadioButton('1')
         self.r_btn2 = QtWidgets.QRadioButton('2')
@@ -59,4 +66,21 @@ class Window(QWidget):
         self.result_group_box.setLayout(self.result_layout)
         self.result_group_box.hide()
 
-        self.setLayout(self.h_line)
+        self.h1_line.addWidget(self.btn_menu)
+        self.h1_line.setStretch(2, 2)
+        self.h1_line.addWidget(self.btn_sleep)
+        self.h1_line.addWidget(self.timer)
+        self.h1_line.addWidget(self.timer_lbl)
+
+        self.main_line.addLayout(self.h1_line)
+        self.main_line.addWidget(self.question_label, Qt.AlignCenter|Qt.AlignCenter)
+
+        self.h2_line.addWidget(self.answer_group_box)
+        self.h2_line.addWidget(self.result_group_box)
+
+
+        self.main_line.addLayout(self.h2_line, stretch=4)
+        self.main_line.setStretch(1, 1)
+        self.main_line.addWidget(self.btn_answer)
+
+        self.setLayout(self.main_line)
