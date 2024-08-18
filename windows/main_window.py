@@ -22,8 +22,8 @@ class Window(QWidget):
         self.timer_lbl = QtWidgets.QLabel('хвилин')
 
         self.question_label = QtWidgets.QLabel('')
-        self.correct_lbl = QtWidgets.QLabel('')
-        self.right_lbl = QtWidgets.QLabel('')
+        self.correct_lbl = QtWidgets.QLabel('правильно')
+        self.right_lbl = QtWidgets.QLabel('правильна відповідь')
 
         self.btn_menu = QtWidgets.QPushButton()
         self.btn_sleep = QtWidgets.QPushButton()
@@ -54,7 +54,7 @@ class Window(QWidget):
 
         self.result_group_box = QtWidgets.QGroupBox()
 
-        self.result_layout.addWidget(self.correct_lbl, alignment=(Qt.AlignCenter|Qt.AlignTop))
+        self.result_layout.addWidget(self.correct_lbl, alignment=(Qt.AlignLeft|Qt.AlignTop))
         self.result_layout.addWidget(self.right_lbl, alignment=Qt.AlignCenter, stretch=3)
         self.result_group_box.setLayout(self.result_layout)
         self.result_group_box.hide()
