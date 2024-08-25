@@ -9,6 +9,7 @@ class MenuWindow(QWidget):
         self.setWindowTitle('Memory Card')
         self.resize(600, 500)
         self.move(300, 300)
+        d = 1
     
     def open_menu(self):
         pass
